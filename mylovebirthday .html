@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Mansi ❤️</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(#ffd6e7,#ffeef5);
+  overflow:hidden;
+  text-align:center;
+}
+
+/* BIG HEART BACKGROUND */
+.bg-heart{
+  position:fixed;
+  font-size:120px;
+  color:#ffb6d5;
+  opacity:0.25;
+  z-index:-1;
+}
+
+.screen{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+.hidden{display:none;}
+
+.envelope,.letter,.message{
+  background:white;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
+}
+
+button{
+  padding:16px 34px;
+  border:none;
+  border-radius:40px;
+  background:#ff4f9a;
+  color:white;
+  font-size:20px;
+  cursor:pointer;
+  margin-top:20px;
+}
+
+#giftBtn{
+  font-size:24px;
+}
+
+.photo{
+  width:230px;
+  border-radius:18px;
+  margin:15px;
+}
+
+/* TEDDY */
+.teddy{
+  font-size:70px;
+  margin-top:10px;
+}
+
+/* HEARTS & FLOWERS */
+.heart,.flower{
+  position:fixed;
+  bottom:-10px;
+  animation:float 6s linear infinite;
+}
+
+@keyframes float{
+  0%{opacity:0;transform:translateY(0)}
+  30%{opacity:1}
+  100%{opacity:0;transform:translateY(-100vh)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background hearts -->
+<div class="bg-heart" style="top:10%;left:10%;">💗</div>
+<div class="bg-heart" style="top:50%;left:70%;">💗</div>
+<div class="bg-heart" style="top:75%;left:25%;">💗</div>
+
+<!-- Screen 1 -->
+<div class="screen" id="s1">
+  <div class="envelope" onclick="openLetter()">
+    <h2>For Mansi 💌</h2>
+    <p>Click to open</p>
+  </div>
+</div>
+
+<!-- Screen 2 -->
+<div class="screen hidden" id="s2">
+  <div class="letter">
+    <h3>Dear Mansi ❤️</h3>
+    <p>
+      Tum meri zindagi ka sabse pyaara hissa ho.<br>
+      Tumhari muskurahat meri duniya roshan kar deti hai 💖
+    </p>
+    <p><b>11/02/2009</b></p>
+    <button onclick="openSurprise()">Tap for Surprise 🎁</button>
+  </div>
+</div>
+
+<!-- Screen 3 -->
+<div class="screen hidden" id="s3">
+  <h2>🎉 Happy Birthday Mansi 🎉</h2>
+  <img src="1000045519.jpg" class="photo">
+  <div class="teddy">🧸💬 I love you</div>
+  <button id="giftBtn" onclick="moveBtn()">Special Gift for Mansi Jaan 💝</button>
+</div>
+
+<!-- Screen 4 -->
+<div class="screen hidden" id="s4">
+  <div class="message">
+    <h3>💖 My Special Message 💖</h3>
+    <p>
+      my love thanku for giving me this type of love ❤️<br><br>
+      ik mai bohot ladhta hu or bohot jaghadta hu but  
+      I really love you mansi 💕<br><br>
+      your my special oneeee  
+      your my jaaan yrrr  
+      I loveeeeeeeeeeeeeeee youuuu bacha 😭💖<br><br>
+      sorry for my mistake and  
+      happy birthday my loveeeeeeeeeeeeeeee 🎈
+    </p>
+  </div>
+</div>
+
+<script>
+let count=0;
+
+function openLetter(){
+  s1.classList.add("hidden");
+  s2.classList.remove("hidden");
+}
+
+function openSurprise(){
+  s2.classList.add("hidden");
+  s3.classList.remove("hidden");
+}
+
+function moveBtn(){
+  count++;
+  let btn=document.getElementById("giftBtn");
+  if(count<4){
+    btn.style.transform=`translate(${Math.random()*200-100}px,${Math.random()*200-100}px)`;
+  }else{
+    s3.classList.add("hidden");
+    s4.classList.remove("hidden");
+    hearts();
+    flowers();
+  }
+}
+
+function hearts(){
+  for(let i=0;i<25;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize="40px";
+    document.body.appendChild(h);
+  }
+}
+
+function flowers(){
+  for(let i=0;i<20;i++){
+    let f=document.createElement("div");
+    f.className="flower";
+    f.innerHTML="🌸";
+    f.style.left=Math.random()*100+"vw";
+    f.style.fontSize="38px";
+    document.body.appendChild(f);
+  }
+}
+</script>
+
+</body>
+</html>
